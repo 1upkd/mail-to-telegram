@@ -1,9 +1,12 @@
 import asyncio
 from aiosmtpd.controller import Controller
 
+ALLOWED_DOMAINS = ["inmail.1upkd.com", "1upkd.localhost"]
+
 class ExampleHandler:
     async def handle_RCPT(self, server, session, envelope, address, rcpt_options):
-        if not "@1upkd" in address:
+        domain = address.split("@")[1]
+        if domain not in ALLOWED_DOMAINS:
             return '550 not relaying to that domain'
         envelope.rcpt_tos.append(address)
         return '250 OK'
