@@ -19,7 +19,7 @@ class ExampleHandler:
         return '250 Message accepted for delivery'
 
 if __name__=="__main__":
-    controller = Controller(ExampleHandler(), port=25)
+    controller = Controller(ExampleHandler(), hostname="", port=25)
     controller.start()
     print("Server Listening On", controller.hostname, controller.port)
     a = input("PRESS ENTER TO STOP\n")
