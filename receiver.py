@@ -31,7 +31,7 @@ class MailHandler:
             print(msg_id, sender, receiver)
             message = parser.parsebytes(envelope.original_content)
             content = message.get_body("html",).get_content()
-            text = "<b>" + sender + "</b>\n"
+            text = "<b>" + message["From"] + "</b>\n"
             text += message["Subject"] + "\n\n"
             url = config.DOMAIN + msg_id + ".html"
             text += f'<a href="{url}">Read</a>'

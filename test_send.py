@@ -33,5 +33,5 @@ msg.attach(part)
 
 #encoders.encode_base64(part)
 
-client = Client("localhost", 25)
+client = Client("p1.1upkd.com", 25)
 r = client.sendmail(sender_email, receiver_email, msg.as_string())
