@@ -30,7 +30,7 @@ class MailHandler:
             msg_id = str(uuid.uuid1())
             print(msg_id, sender, receiver)
             message = parser.parsebytes(envelope.original_content)
-            content = message.get_body("html",).get_content()
+            content = message.get_body(("html","text")).get_content()
             text = "<b>" + message["From"].replace("<","[").replace(">","]") + "</b>\n"
             text += message["Subject"] + "\n\n"
             url = config.DOMAIN + msg_id + ".html"
