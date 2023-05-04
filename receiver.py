@@ -6,6 +6,7 @@ import email.policy
 import os
 import telegram
 from telegram.constants import ParseMode
+import time
 import uuid
 
 
@@ -46,5 +47,7 @@ if __name__=="__main__":
     controller = Controller(MailHandler(), hostname="", port=25, decode_data=True)
     controller.start()
     print("Server Listening On", controller.hostname, controller.port)
-    a = input("PRESS ENTER TO STOP\n")
-    controller.stop()
+    while True:
+        time.sleep(600)
+    #a = input("PRESS ENTER TO STOP\n")
+    #controller.stop()
