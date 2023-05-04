@@ -39,7 +39,8 @@ class MailHandler:
                 f.write(content)
                 f.close()
             await bot.send_message(chat_id=receiver_id, text=text, parse_mode=ParseMode.HTML)
-        except:
+        except Exception as e:
+            print(e)
             pass
         return '250 Message accepted for delivery'
 
