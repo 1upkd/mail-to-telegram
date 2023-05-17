@@ -35,7 +35,7 @@ class MailHandler:
                 content = content.get_content()
             else:
                 content = str(message)
-            text = "<b>" + message["From"].replace("<","[").replace(">","]") + "</b>\n"
+            text = "<b>" + message["From"].replace("<","\n").replace(">","\n") + "</b>\n"
             text += message["Subject"] + "\n\n"
             url = config.DOMAIN + msg_id + ".html"
             text += f'<a href="{url}">Read</a>'
